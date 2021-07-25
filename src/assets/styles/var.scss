@@ -1,0 +1,21 @@
+$white: rgb(255, 255, 255);
+$gray: rgba(255, 255, 255, 0.3);
+$textTitle: #272020;
+$textGray-1: #b7b7b7;
+$textShadow-1: 0px 0px 2px black;
+$textShadow-2: 0px 0px 3px black;
+$textShadowNeon:
+    0 0 2px #000,
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #fff,
+    0 0 82px #fff,
+    0 0 92px #fff,
+    0 0 102px #fff,
+    0 0 151px #fff;
+$textShadowInsetHalf: -.5px -.5px #000, 0 .5px 0 #444;
+$textShadowInset: -1px -1px #000, 0 1px 0 #444;
+$backdropFilter: blur(3px) saturate(177%);
+$boxShadow: 0px 11px 15px -7px rgb(0 0 0 / 20%), 0px 24px 38px 3px rgb(0 0 0 / 14%), 0px 9px 46px 8px rgb(0 0 0 / 12%);
+$borderRadius: 4px;

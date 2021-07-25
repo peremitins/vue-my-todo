@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss">
-  main {
-    background-color: #f5f5f5;
-  }
+main {
+  background: linear-gradient(150deg,	rgba(2, 0, 36, 0) 7%,	rgba(0, 0, 0, 0.8) 100%);
+}
 </style>

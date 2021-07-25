@@ -1,18 +1,18 @@
 <template>
-	<div>
-		<h1 class="subheading grey--text">Projects</h1>
+	<div class="projects">
+		<h1 class="subheading projects__title">Projects</h1>
 
 		<v-container class="my-5">
-      <v-expansion-panels>
-        <v-expansion-panel class="my-1" v-for="project in myProjects" :key="project.title">
-          <v-expansion-panel-header>
+      <v-expansion-panels dark>
+        <v-expansion-panel class="my-2 item-wrapper" v-for="project in myProjects" :key="project.title">
+          <v-expansion-panel-header class="font-weight-normal">
             {{ project.title }}
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             <v-card>
               <v-card-text class="px-4 grey--text">
-                <div class="font-weight-bold">due by {{ project.due }}</div>
-                <div>{{ project.content }}</div>
+                <div class="subtitle font-weight-bold">due by {{ project.due }}</div>
+                <div class="text">{{ project.content }}</div>
               </v-card-text>
             </v-card>
           </v-expansion-panel-content>
@@ -22,39 +22,12 @@
 	</div>
 </template>
 <script>
+import db from '@/fb'
+
 export default {
   data() {
     return {
-       projects: [
-        {
-          title: 'Design a new website',
-          person: 'Peremitin',
-          due: '1st Jun 2021',
-          status: 'ongoing',
-          content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, autem consequuntur! Ipsa nam maiores inventore. Numquam repellat debitis at atque.'
-        },
-        {
-          title: 'Code up the home page',
-          person: 'Zuckerberg',
-          due: '1st Jan 2021',
-          status: 'complete',
-          content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, autem consequuntur! Ipsa nam maiores inventore. Numquam repellat debitis at atque.'
-        },
-        {
-          title: 'Design video',
-          person: 'Peremitin',
-          due: '16st Jun 2021',
-          status: 'complete',
-          content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, autem consequuntur! Ipsa nam maiores inventore. Numquam repellat debitis at atque.'
-        },
-        {
-          title: 'Create a form',
-          person: 'Durov',
-          due: '11st Nov 2020',
-          status: 'overdue',
-          content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, autem consequuntur! Ipsa nam maiores inventore. Numquam repellat debitis at atque.'
-        }
-      ]
+       projects: []
     }
   },
   computed: {
@@ -63,8 +36,56 @@ export default {
         return project.person === "Peremitin"
       })
     }
+  },
+  created() {
+    db.collection('projects').onSnapshot(res => {
+      const changes = res.docChanges();
+      
+      changes.forEach(change => {
+        if (change.type === 'added') {
+          this.projects.push({
+            ...change.doc.data(),
+            id: change.doc.id
+          })
+        }
+      })
+    })
   }
 };
 </script>
-<style lang="">
+<style scoped lang="scss">
+@import "../assets/styles/var.scss";
+
+.projects .theme--dark.v-expansion-panels .v-expansion-panel {
+  border-radius: $borderRadius;
+  overflow: hidden;
+  box-shadow: $boxShadow;
+  backdrop-filter: $backdropFilter;
+  background-color: transparent;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+}
+.projects .v-expansion-panel-header {
+  text-shadow: $textShadow-2;
+  color: $white;
+}
+.projects .v-sheet.v-card {
+  box-shadow: inset 0.2rem 0.2rem 0.5rem #858585, inset -0.2rem -0.2rem 0.5rem #b5b5b5;
+  backdrop-filter: $backdropFilter;
+  background-color: transparent;
+}
+.v-application .subtitle {
+  color: $white;
+  text-shadow: $textShadow-1;
+}
+.v-application .text {
+  color: $white;
+  text-shadow: $textShadow-1;
+} 
+.projects__title {
+  background-clip: text;
+  color: transparent;
+  background-color: #929292;
+  text-shadow: 0px 4px 4px rgb(255 255 255 / 50%);
+}
+
 </style>
