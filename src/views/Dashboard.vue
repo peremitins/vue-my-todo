@@ -8,7 +8,6 @@
 					<template v-slot:activator="{ on, attrs }">
 						<v-btn
 							small
-							flat
 							color="grey lighten-4 mx-3"
 							@click="sortBy('title')"
 							v-bind="attrs"
@@ -24,7 +23,6 @@
 					<template v-slot:activator="{ on, attrs }">
 						<v-btn
 							small
-							flat
 							color="grey lighten-4"
 							@click="sortBy('person')"
 							v-bind="attrs"
@@ -39,7 +37,7 @@
 			</v-layout>
 
 			<v-card
-				flat
+				
 				class="card pa-3 mb-4"
 				v-for="project in projects"
 				:key="project.title"
