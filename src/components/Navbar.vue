@@ -42,7 +42,7 @@
 			<v-layout column align-center>
 				<v-flex class="mt-5">
 					<v-avatar size="100">
-						<img src="/avatar-1.jpg" alt="" />
+						<img src="avatar-1.jpg" alt="Фото" />
 					</v-avatar>
 					<p class="gray--text subheading mt-1 text-center">
 						PeremitinNS
