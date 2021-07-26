@@ -33,7 +33,7 @@
 			</v-menu>
 
 			<v-btn text color="grey">
-				<span>SignOut</span>
+				<span class="d-none d-sm-flex">SignOut</span>
 				<v-icon>mdi-exit-to-app</v-icon>
 			</v-btn>
 		</v-app-bar>
@@ -133,5 +133,10 @@ export default {
 .sidebar .v-list .v-list-item--active .v-list-item__title,
 .sidebar .v-list .v-list-item--active {
   color: lighten($textGray-1, 30)!important;
+}
+@media (max-width: 375px) {
+  .v-toolbar__title {
+    padding: 0!important;
+  }
 }
 </style>

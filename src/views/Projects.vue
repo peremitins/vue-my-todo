@@ -1,8 +1,8 @@
 <template>
 	<div class="projects">
-		<h1 class="subheading projects__title">Projects</h1>
+		<h1 class="container subheading projects__title">Projects</h1>
 
-		<v-container class="my-5">
+		<v-container class="mb-5">
       <v-expansion-panels dark>
         <v-expansion-panel class="my-2 item-wrapper" v-for="project in myProjects" :key="project.title">
           <v-expansion-panel-header class="font-weight-normal">
@@ -87,5 +87,9 @@ export default {
   background-color: #929292;
   text-shadow: 0px 4px 4px rgb(255 255 255 / 50%);
 }
-
+@media (max-width: 375px) {
+  .v-expansion-panel-header {
+    padding: 10px;
+  }
+}
 </style>

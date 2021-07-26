@@ -2,7 +2,7 @@
   <v-app>
     <Navbar></Navbar>
     <v-main >
-      <router-view class="px-3 mb-4"></router-view>
+      <router-view class="px-xl-3 px-lg-3 px-md-3 px-sm-3 px-xs-1 mb-4"></router-view>
     </v-main>
   </v-app>
 </template>

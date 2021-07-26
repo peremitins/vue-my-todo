@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<h1 class="subheading dashboard__title">Dashboard</h1>
+		<h1 class="container subheading dashboard__title">Dashboard</h1>
 
-		<v-container class="my-5">
+		<v-container class="mb-5">
 			<v-layout row class="mb-3">
 				<v-tooltip top>
 					<template v-slot:activator="{ on, attrs }">
@@ -43,22 +43,22 @@
 				:key="project.title"
 			>
 				<v-layout row wrap :class="`pa-3 project ${project.status}`">
-					<v-flex xs12 sm4 md6>
+					<v-flex xs6 sm4 md6>
 						<div class="caption title font-weight-bold">Project Title</div>
 						<v-divider></v-divider>
 						<div class="description">{{ project.title }}</div>
 					</v-flex>
-					<v-flex xs6 sm3 md2>
+					<v-flex xs3 sm3 md2>
 						<div class="caption title font-weight-bold">Person</div>
 						<v-divider></v-divider>
 						<div class="description">{{ project.person }}</div>
 					</v-flex>
-					<v-flex xs6 sm3 md2>
+					<v-flex xs3 sm3 md2>
 						<div class="caption title font-weight-bold">Due by</div>
 						<v-divider></v-divider>
 						<div class="description">{{ project.due }}</div>
 					</v-flex>
-					<v-flex class="chip" xs2 sm2 md2>
+					<v-flex class="chip d-none d-sm-flex" xs1 sm2 md2>
 						<div>
 							<v-chip
 								small
@@ -149,5 +149,19 @@ export default {
   color: transparent;
   background-color: #929292;
   text-shadow: 0px 4px 4px rgb(255 255 255 / 50%);
+}
+
+@media (max-width: 500px) {
+  .description {
+    font-size: 12px;
+  }
+  .v-chip .v-chip__content,
+  .v-application .v-chip.v-size--small {
+    font-size: 8px!important;
+    padding: 2px!important;
+  }
+  .project {
+    padding: 5px!important;
+  }
 }
 </style>

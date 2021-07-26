@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h1 class="subheading team__title">Team</h1>
+    <h1 class="container subheading team__title">Team</h1>
     
-    <v-container class="my-5">
+    <v-container class="mb-5">
       <v-layout row wrap>
-        <v-flex class="card-person-wrapper" xs12 sm6 md4 lg3 v-for="person in team" :key="person.name">
-          <v-card class="card-person text-xs-center ma-3 pa-5">
-            <v-responsive class="pt-4 mx-auto">
-              <v-avatar class="d-flex mx-auto mb-6 team__photo" size="110">
+        <v-flex class="card-person-wrapper"  sm6 md4 lg3 v-for="person in team" :key="person.name">
+          <v-card class="card-person text-xs-center ma-3 pa-xl-5 pa-lg-3 pa-md-3 pa-sm-3 pa-xs-5">
+            <v-responsive class="card-person-photo pt-4 mx-auto">
+              <v-avatar class="d-flex mx-auto mb-1 team__photo" size="110">
                 <img :src="person.avatar" class="avatar-img" alt="image">
               </v-avatar>
             </v-responsive>
@@ -15,7 +15,7 @@
               <div class="subheading team__item-title">{{ person.name }}</div>
               <div class="team__description">{{ person.role }}</div>
             </v-card-text>
-            <v-card-actions>
+            <v-card-actions class="card-person-btn">
               <v-btn class="mx-auto">
                 <v-icon small left>mdi-message-processing</v-icon>
                 <span>Message</span>
@@ -76,6 +76,9 @@ export default {
 .v-card.card-person .v-responsive
 .v-card.card-person .v-card__actions {
   position: relative;
+}
+.v-card.card-person .v-card__text {
+  padding: 10px 10px 10px;
 }
 .v-card.card-person::before {
   content: '';
@@ -176,6 +179,30 @@ export default {
         transform: translateY(0px) scale(1.1);
       }
     }
+  }
+}
+.card-person {
+  display: flex;
+  flex-direction: column;
+  height: 270px;
+}
+.card-person-btn {
+  margin-top: auto;
+}
+.card-person-photo {
+  max-height: 130px;
+}
+@media (max-width: 500px) {
+  .flex.card-person-wrapper {
+    flex: 1 1 30%!important;
+  }
+  .card-person {
+    padding: 10px 0!important;
+  }
+}
+@media (max-width: 375px) {
+  .flex.card-person-wrapper {
+    flex: 1 1 100%!important;
   }
 }
 
