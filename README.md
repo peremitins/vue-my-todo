@@ -1,8 +1,8 @@
 # vue-my-todo
 ##### https://allfreelance.github.io/vue-my-todo/
 
-> Implementation of an online store cart.<br>
-> Used HTML, CSS/SASS, JS, Vuejs, Vuex, Gulp, Git.
+> Implementing a todo list by adding via google Firestore.<br>
+> Used HTML, CSS/SCSS, JS, Vuejs, VueRouter, Gulp, Git, Firestore.
 
 [![](https://github.com/allfreelance/vue-my-todo/blob/main/screen.jpg)](https://allfreelance.github.io/vue-my-todo/)
 
