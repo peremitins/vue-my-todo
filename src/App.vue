@@ -22,6 +22,6 @@ export default {
 
 <style lang="scss">
 main {
-  background: linear-gradient(150deg,	rgba(2, 0, 36, 0) 7%,	rgba(0, 0, 0, 0.8) 100%);
+  background: linear-gradient(150deg,	rgba(2, 0, 36, 0) 7%,	rgba(0, 0, 0, 0.8) 100%), no-repeat;
 }
 </style>
